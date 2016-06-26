@@ -21,10 +21,10 @@ header {
 	background-color: rgba(10,10,10,0.7);
 }
 	#bar nav {
-		width: 960px;
 		height: 50px;
 		margin: 0 auto;
 		text-align: right;
+		margin-right: 50px;
 	}
 	#bar nav a {
 		padding: 0 20px;
@@ -39,12 +39,12 @@ header {
 			padding-right: 0;
 		}
 		#bar nav a:hover {
-			color: #007f7f;
+			color: #008098;
 		}
 
 #name {
 	width: 100%;
-	background-color: #007f7f;
+	background-color: #008098;
 	position: relative;
 	top: 180px;
 }
@@ -67,7 +67,7 @@ header {
 }
 	#content a {
 		text-decoration: none;
-		color: #007f7f;
+		color: #008098;
 	}
 		#content a:hover {
 			color: #666;
@@ -76,7 +76,7 @@ header {
 		margin: 5px 0;
 	}
 	#content h4 {
-		color: #007f7f;
+		color: #008098;
 		margin-bottom: 10px;
 	}
 
