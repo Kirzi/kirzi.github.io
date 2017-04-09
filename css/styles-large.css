@@ -145,7 +145,7 @@ header {
 }
 
 .screenshotbig,
-.screenshotsmall, {
+.screenshotsmall {
 	margin: 0 auto; 
 	display: block;
 }
