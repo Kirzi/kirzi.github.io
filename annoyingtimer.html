@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>A very annoying timer</title>
+ <link rel="icon" type="image/png" href="images/favicon.png">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="css/annoyingtimer.css" />
+ <script>
+	function timeAlert() {
+		var userInput = document.getElementById("userInput").value;
+		var minuteCalc = userInput * 60000;
+		var something = setInterval(annoyingThing, minuteCalc);
+		function annoyingThing() {
+			alert(userInput + " minutes have passed.");
+		}
+	}
+</script>
+</head>
+
+<body>
+
+<div id="wrapper">
+
+<h1>The annoying timer</h1>
+
+<p>Have you ever wanted your browser to bother you every x minutes that it has been x minutes? Who hasn't? Well, now you can.</p>
+<p>Introducing the productivity tool to end all productivity tools: the annoying timer. Now, you can have your work rudely interrupted by your browser reminding you that you did not get as much done as you planned.</p>
+<p>Just input a number of minutes to begin.</p>
+<p>Warning: once it starts, it won't stop. Ever. Unless you close the page, I guess.</p>
+
+<div id="timer">
+ <input type="text" id="userInput"></input>
+ <button class="btn" onclick="timeAlert()">Start</button>
+</div>
+
+</div>
+
+</body>
+</html>
