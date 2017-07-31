@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Region legality</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+  </style>
+  <script>
+    function check() {
+      var consoleRegion = document.getElementById("consoleRegion").value;
+      var gameLanguage = document.getElementById("gameLanguage").value;
+      var wcType = document.getElementById("wcType").value;
+      var legalHKTWE = ["JPN","ENG","KOR","CHS","CHT"];
+      var USLangs = ["ENG","FRE","SPA"];
+      var EULangs = ["ENG","FRE","ITA","GER","SPA"];
+      var legal = "";
+      var lang = "";
+      
+      if (wcType == "JP") {
+        if (consoleRegion == "J") {
+          var legal = "Yes";
+          var lang = "JPN";
+        }
+        else 
+          var legal = "No";
+      }
+      
+      if (wcType == "HKTW") {
+        if ((consoleRegion == "J") || ((consoleRegion == "E") && (legalHKTWE.indexOf(gameLanguage) > -1))) {
+          var legal = "Yes";
+          var lang = "ENG";
+        }
+        else 
+          var legal = "No";
+      }
+      
+      if (wcType == "SEA") {
+        if ((consoleRegion == "J") || (consoleRegion == "U")) {
+          var legal = "Yes";
+          var lang = "ENG"; // I think
+        }
+        else 
+          var legal = "No";
+      }
+      
+      if (wcType == "US") {
+        if (consoleRegion == "U") {
+          var legal = "Yes";
+          if (USLangs.indexOf(gameLanguage) > -1) {
+            var lang = gameLanguage;
+          }
+          else
+            var lang = "ENG";
+        }
+        else 
+          var legal = "No";
+      }
+      
+      if (wcType == "EU") {
+        if (consoleRegion == "E") {
+          var legal = "Yes";
+          if (EULangs.indexOf(gameLanguage) > -1) {
+            var lang = gameLanguage;
+          }
+          else
+            var lang = "ENG";
+        }
+        else 
+          var legal = "No";
+      }
+      
+      if (wcType == "KO") {
+        if (consoleRegion == "K") {
+          var legal = "Yes";
+          var lang = "KOR";
+        }
+        else 
+          var legal = "No";
+      }
+      
+      if (wcType == "LOCAL") {
+        var legal = "Yes";
+        var lang = "Depends on WCID";
+      }
+      
+      document.getElementById("legalOutput").innerHTML = legal;
+      document.getElementById("langOutput").innerHTML = lang;
+  }  
+    
+  </script>
+</head>
+
+<body>
+
+<form>
+  <label for="check"><strong>Input: </strong>
+    <select name="consoleRegion" id="consoleRegion">
+      <option>3DS region</option>
+      <option value="J" id="J">J</option>
+      <option value="U" id="U">U</option>
+      <option value="E" id="E">E</option>
+      <option value="K" id="K">K</option>
+    </select>
+    <select name="gameLanguage" id="gameLanguage">
+      <option>Game language</option>
+      <option value="JPN" id="JPN">JPN</option>
+      <option value="ENG" id="ENG">ENG</option>
+      <option value="FRE" id="FRE">FRE</option>
+      <option value="ITA" id="ITA">ITA</option>
+      <option value="GER" id="GER">GER</option>
+      <option value="SPA" id="SPA">SPA</option>
+      <option value="KOR" id="KOR">KOR</option>
+      <option value="CHS" id="CHS">CHS</option>
+      <option value="CHT" id="CHT">CHT</option>
+    </select>
+    <select name="wcType" id="wcType">
+      <option>WC type</option>
+      <option value="JP" id="JP">JP</option>
+      <option value="HKTW" id="HKTW">HKTW</option>
+      <option value="SEA" id="SEA">SEA</option>
+      <option value="US" id="US">US</option>
+      <option value="EU" id="EU">EU</option>
+      <option value="KO" id="KO">KO</option>
+      <option value="LOCAL" id="LOCAL">LOCAL</option>
+    </select>
+  </label>
+  <input type="button" value="Submit" onclick="check()">
+</form>
+
+<p><strong>Legal? </strong> <span id="legalOutput">_____<span></p>
+<p><strong>WC language: </strong> <span id="langOutput">_____<span></p>
+
+</body>
+</html>
