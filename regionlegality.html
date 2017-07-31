@@ -12,6 +12,8 @@
       var consoleRegion = document.getElementById("consoleRegion").value;
       var gameLanguage = document.getElementById("gameLanguage").value;
       var wcType = document.getElementById("wcType").value;
+      var WCID = document.getElementById("WCID").value;
+      var gen = document.getElementById("gen").value;
       var legalHKTWE = ["JPN","ENG","KOR","CHS","CHT"];
       var USLangs = ["ENG","FRE","SPA"];
       var EULangs = ["ENG","FRE","ITA","GER","SPA"];
@@ -28,7 +30,7 @@
       }
       
       if (wcType == "HKTW") {
-        if ((consoleRegion == "J") || ((consoleRegion == "E") && (legalHKTWE.indexOf(gameLanguage) > -1))) {
+        if ((consoleRegion == "J") || (consoleRegion == "T") ||((consoleRegion == "E") && (legalHKTWE.indexOf(gameLanguage) > -1))) {
           var legal = "Yes";
           var lang = "ENG";
         }
@@ -70,7 +72,7 @@
         else 
           var legal = "No";
       }
-      
+     
       if (wcType == "KO") {
         if (consoleRegion == "K") {
           var legal = "Yes";
@@ -80,13 +82,29 @@
           var legal = "No";
       }
       
+      if (wcType == "TW") {
+        var legal = "WIP";
+        var lang = "WIP";
+      }
+      
       if (wcType == "LOCAL") {
         var legal = "Yes";
-        var lang = "Depends on WCID";
+        if ((WCID > 500) && (WCID < 500)) {
+          var lang = "JPN";
+        }
+        else if ((WCID >= 500) && (WCID < 1000)) {
+          var lang = "Depends on event";
+        }
+        else if ((WCID >= 1000) && (WCID < 1500)) {
+          var lang = "KOR";
+        }
+        else
+          var lang = "unknown";
       }
       
       document.getElementById("legalOutput").innerHTML = legal;
       document.getElementById("langOutput").innerHTML = lang;
+      document.getElementById("pathOutput").innerHTML = "/Gen " + gen + "/" + lang + "/" + WCID + " someFunction";
   }  
     
   </script>
@@ -102,6 +120,7 @@
       <option value="U" id="U">U</option>
       <option value="E" id="E">E</option>
       <option value="K" id="K">K</option>
+      <option value="T" id="T">T</option>
     </select>
     <select name="gameLanguage" id="gameLanguage">
       <option>Game language</option>
@@ -122,15 +141,19 @@
       <option value="SEA" id="SEA">SEA</option>
       <option value="US" id="US">US</option>
       <option value="EU" id="EU">EU</option>
+      <option value="TW" id="TW">TW</option>
       <option value="KO" id="KO">KO</option>
       <option value="LOCAL" id="LOCAL">LOCAL</option>
     </select>
   </label>
+  <input type="number" value="WCID" id="WCID" placeholder="WCID">
+  <input type="number" value="gen" id="gen" placeholder="Gen">
   <input type="button" value="Submit" onclick="check()">
 </form>
 
 <p><strong>Legal? </strong> <span id="legalOutput">_____<span></p>
 <p><strong>WC language: </strong> <span id="langOutput">_____<span></p>
+<p><strong>Path: </strong> <span id="pathOutput">_____<span></p>
 
 </body>
 </html>
