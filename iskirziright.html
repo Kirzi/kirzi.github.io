@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Is Kirzi right?</title>
+ <link rel="icon" type="image/png" href="images/favicon.png">
+ <style>
+	* {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: sans-serif;
+		background-color: #eee;
+	}
+
+	#wrapper {
+		width: 800px;
+		margin: 150px auto;
+		padding: 40px;
+		background-color: #fff;
+		box-shadow: 0 1px 3px 1px rgba(128,128,128,.5);
+	}
+
+	h1 {
+    font-size: 160px;
+		text-align: center;
+    text-transform: uppercase;
+	}
+
+
+ </style>
+</head>
+<body>
+
+<div id="wrapper">
+ <h1><span id="output"></span></h1>
+</div>
+
+<script>
+  function kirziCheck() {
+    if (9 == 9) {
+      return "Yes";
+      }
+    else
+      return "No";
+  }
+  document.getElementById("output").innerHTML = kirziCheck(); 
+</script>
+
+</body>
+</html>
