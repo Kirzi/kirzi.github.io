@@ -42,8 +42,8 @@
 <script>
 	function button() {
     function wupp() {
-      if (document.getElementById("input").value == "wupp") {
-        return "wupp";
+      if ((document.getElementById("input").value == "wupp") || (document.getElementById("input").value == "WUPP")) {
+        return document.getElementById("input").value;
         }
       else
         return "not wupp";
