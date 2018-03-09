@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>wupp</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <style>
+    * {
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #eee;
+    }
+
+    #wrapper {
+      width: 600px;
+      margin: 150px auto;
+      padding: 40px;
+      background-color: #fff;
+      box-shadow: 0 1px 3px 1px rgba(128,128,128,.5);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div id="wrapper">
+  <h1><span id="output">wupp?</span></h1>
+ 
+  <div id="timer">
+    <input id="input" placeholder="Type 'wupp' here"></input>
+    <button class="btn" onclick="button()">Go</button>
+  </div>
+
+</div>
+
+<script>
+	function button() {
+    function wupp() {
+      if (document.getElementById("input").value == "wupp") {
+        return "wupp";
+        }
+      else
+        return "not wupp";
+    }
+    document.getElementById("output").innerHTML = wupp(); 
+	}
+</script>
+
+</body>
+</html>
