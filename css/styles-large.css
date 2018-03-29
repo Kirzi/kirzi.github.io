@@ -38,7 +38,8 @@ hr {
 }
 
 .hr {
-	padding: 0 20px;
+	padding-top: 20px;
+  clear: both;
 }
 
 header {
@@ -113,7 +114,6 @@ header {
 .content {
 	margin: 0 auto;
 	color: #222;
-	display: table;
 	clear: both;
 	padding-bottom: 20px;
 }
@@ -181,7 +181,7 @@ header {
 footer {
 	width: 100%;
 	display: table;
-	margin: 0 auto;
+	margin: 20px auto 0;
 	background-color: #222;
 	font-size: .8em;
 }
